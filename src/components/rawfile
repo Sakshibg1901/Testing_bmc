@@ -1,0 +1,298 @@
+// // import { Link } from "react-router-dom";
+// // import React, { useState } from "react";
+// // // import InputField from "./InputField";
+// // // import SubmitButton from "./SubmitButton";
+
+// // // function SignUpForm() {
+// // //   const [email, setEmail] = useState("");
+// // //   const [password, setPassword] = useState("");
+// // //   const [confirmPassword, setConfirmPassword] = useState("");
+// // //   const [emailValid, setEmailValid] = useState(false);
+// // //   const [passwordValid, setPasswordValid] = useState(false);
+// // //   const [emailerror, setEmailError] = useState(false);
+// // //   const [confirmPasswordValid, setConfirmPasswordValid] = useState(false);
+
+// // //   const handleSubmit = (e) => {
+// // //     e.preventDefault();
+// // //     if (emailValid && passwordValid && confirmPasswordValid) {
+// // //       // submit form data
+// // //     }
+// // //   };
+
+// // //   const validateEmail = () => {
+// // //     const regex = /^\S+@\S+\.\S+$/;
+// // //     if (!regex.test(email)) {
+// // //       setEmailValid(false);
+// // //     }
+// // //       else if (!email.endsWith('@bmc.com')) {
+// // //     setEmailError('Email must be from BMC domain');
+// // //   }
+// // //   else{ return false;}
+
+// // //     setEmailValid(true);
+// // //     return true;
+// // //   };
+
+// // //   const validatePassword = () => {
+// // //     if (password.length < 8) {
+// // //       setPasswordValid(false);
+// // //       return false;
+// // //     }
+// // //     setPasswordValid(true);
+// // //     return true;
+// // //   };
+
+// // //   const validateConfirmPassword = () => {
+// // //     if (password !== confirmPassword) {
+// // //       setConfirmPasswordValid(false);
+// // //       alert("Error");
+// // //       return false;
+// // //     }
+// // //     setConfirmPasswordValid(true);
+// // //     return true;
+// // //   };
+
+// // //   return (
+// // //     <div className="bg-white content-center border border-gray-400 h-96 pl-10 space-y-3 w-[350px] flex flex-col justify-center">
+// // //       <form className="space-y-1" onSubmit={handleSubmit}>
+// // //         <div>
+// // //           <p className="font-semibold text-3xl  tracking-wide content-center">
+// // //             Signup
+// // //           </p>
+// // //         </div>
+// // //         <InputField
+// // //           label="Email"E
+// // //           type="email"
+// // //           value={email}
+// // //           onChange={(e) => {
+// // //             setEmail(e.target.value);
+// // //             validateEmail();
+// // //             setEmailError();
+// // //           }}
+// // //           isValid={emailValid}
+// // //           error="Invalid email address."
+// // //         />
+// // //         <InputField
+// // //           label="Password"
+// // //           type="password"
+// // //           value={password}
+// // //           onChange={(e) => {
+// // //             setPassword(e.target.value);
+// // //             validatePassword();
+// // //           }}
+// // //           isValid={passwordValid}
+// // //           error="Password must be at least 8 characters long."
+// // //         />
+// // //         <InputField
+// // //           label="Confirm Password"
+// // //           type="password"
+// // //           value={confirmPassword}
+// // //           onChange={(e) => {
+// // //             setConfirmPassword(e.target.value);
+// // //             validateConfirmPassword();
+// // //           }}
+// // //           isValid={confirmPasswordValid}
+// // //           error="Passwords do not match."
+// // //         />
+// // //         <SubmitButton label="Sign Up" />
+// // //       </form>
+// // //     </div>
+// // //   );
+// // // }
+
+// // function Signup() {
+// //   const [email, setEmail] = useState("");
+// //   const [password, setPassword] = useState("");
+// //   const [confirmPassword, setConfirmPassword] = useState("");
+// //   const [emailError, setEmailError] = useState(false);
+// //   const [passwordError, setPasswordError] = useState(false);
+// //   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+
+// //   const handleSubmit = (e) => {
+// //     e.preventDefault();
+
+// //     // Reset errors
+// //     setEmailError("");
+// //     setPasswordError("");
+// //     setConfirmPasswordError("");
+
+// //     // Validate email
+// //     if (!email) {
+// //       setEmailError("Email is required");
+// //     } else if (!/\S+@\S+\.\S+/.test(email)) {
+// //       alert(setEmailError("Email is invalid"));
+// //     }
+
+// //     // Validate password
+// //     if (!password) {
+// //       setPasswordError("Password is required");
+// //     } else if (password.length < 8) {
+// //       setPasswordError("Password must be at most 8 characters");
+// //     }
+
+// //     // Validate confirm password
+// //     if (!confirmPassword) {
+// //       setConfirmPasswordError("Confirm password is required");
+// //     } else if (confirmPassword !== password) {
+// //       setConfirmPasswordError("Passwords do not match");
+// //     }
+
+// //     // If no errors, submit form
+// //     if (!emailError && !passwordError && !confirmPasswordError) {
+// //       console.log("Form submitted");
+// //     }
+// //   };
+
+// //   return (
+  
+// //   );
+// // }
+
+// // export default Signup;
+
+
+// import React, { useState } from 'react';
+
+// const SignupForm = () => {
+//   const [formData, setFormData] = useState({
+//     // firstName: '',
+//     // lastName: '',
+//     email: '',
+//     password: '',
+//     confirmPassword: ''
+//   });
+//   const [errors, setErrors] = useState({});
+
+//   const handleChange = event => {
+//     const { name, value } = event.target;
+//     setFormData(prevState => ({ ...prevState, [name]: value }));
+//   };
+
+//   const handleSubmit = event => {
+//     event.preventDefault();
+//     // Perform form validation
+//     const errors = {};
+//     // if (!formData.firstName) {
+//     //   errors.firstName = 'First name is required';
+//     // }
+//     // if (!formData.lastName) {
+//     //   errors.lastName = 'Last name is required';
+//     // }
+//     if (!formData.email) {
+//       errors.email = 'Email is required';
+//     } else if (!/\S+@bmc.com+/.test(formData.email)) {
+//       errors.email = 'Invalid email address';
+//     }
+//     if (!formData.password) {
+//       errors.password = 'Password is required';
+//     } else if (formData.password.length < 6) {
+//       errors.password = 'Password must be at least 6 characters';
+//     }
+//     if (formData.confirmPassword !== formData.password) {
+//       errors.confirmPassword = 'Passwords do not match';
+//     }
+//     setErrors(errors);
+//     // If there are no errors, submit the form
+//     if (Object.keys(errors).length === 0) {
+//       // Submit the form
+//       console.log('Form submitted successfully!');
+//     }
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       {/* <div>
+//         <label>First Name:</label>
+//         <input type="text" name="firstName" onChange={handleChange} value={formData.firstName} />
+//         {errors.firstName && <span className="error">{errors.firstName}</span>}
+//       </div>
+//       <div>
+//         <label>Last Name:</label>
+//         <input type="text" name="lastName" onChange={handleChange} value={formData.lastName} />
+//         {errors.lastName && <span className="error">{errors.lastName}</span>}
+//       </div> */}
+//       <div className="bg-slate-100 content-center border border-gray-400 h-96 pl-10 space-y-3 w-[350px] flex flex-col justify-center">
+//       <form className="space-y-1">
+//         <div>
+//           <p className="font-semibold text-3xl  tracking-wide content-center mb-4">
+//             Signup
+//           </p>
+//         </div>
+//         <div className="mr-5">
+//           <p className="text-zinc-600 content-center font-semibold  border-gray-400">
+//             Username
+//           </p>
+//           <input
+//             className="outline-none content-center h-10 px-5border border-sm w-full ontent-center border border-gray-10"
+//             type="email"
+//             onChange={handleChange} value={formData.email}
+//              placeholder="Email"
+
+//             required
+//           />
+//           {errors.email && <span className="error">{errors.email}</span>}
+          
+//         </div>
+//         <div className="mr-5">
+//           <p className="text-zinc-600 font-semibold ">Password</p>
+//           <input
+//             className="outline-none h-10 px-5border border-sm w-full content-center border border-gray-10"
+//             type="password"
+//             placeholder="Password"
+//             onChange={handleChange} value={formData.password}
+            
+//             required
+//           />
+//          {errors.password && <span className="error">{errors.password}</span>}
+//         </div>
+//         <div className="mr-5">
+//           <p className="text-zinc-600 font-semibold">Confirm Password</p>
+//           <input
+//             className="outline-none h-10 px-5border border-sm w-full ontent-center border border-gray-10"
+//             type="password"
+//             placeholder="Password"
+//             onChange={handleChange} value={formData.ConfirmPassword}
+//             required
+//           />
+//           {errors.ConfirmPassword && <span className="error">{errors.ConfirmPassword}</span>}
+//         </div>
+
+//         <div div className="mr-6">
+//           <button className="bg-orange-600  h-10 rounded-full hover:bg-orange-400 duration-300 w-full text-white font-semibold mt-3">
+//             Signup
+//           </button>
+//           </div>
+//           <p className="text-center mt-4 ">
+//             Already Account Exits?{" "}
+//             <span className="text-blue-500 font-semibold text-1xl underline ">
+//               <Link to="/">Login</Link>
+//             </span>
+//           </p>
+//             </form>
+//             </div>
+          
+//     {/* </div> */}
+
+
+//       {/* ***************************************************************** */}
+//       {/* <div>
+//         <label>Email:</label>
+//         <input type="email" name="email" onChange={handleChange} value={formData.email} />
+//         {errors.email && <span className="error">{errors.email}</span>}
+//       </div>
+//       <div>
+//         <label>Password:</label>
+//         <input type="password" name="password" onChange={handleChange} value={formData.password} />
+//         {errors.password && <span className="error">{errors.password}</span>}
+//       </div>
+//       <div>
+//         <label>Confirm Password:</label>
+//         <input type="password" name="confirmPassword" onChange={handleChange} value={formData.confirmPassword} />
+//         {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+//       </div>
+//       <button type="submit">Submit</button>
+//     </form> */}
+//   );
+// };
+
+// export default SignupForm;
